@@ -8,6 +8,13 @@
     are used. See example-shibboleth2.xml for samples of explicitly configuring them.
     -->
 
+
+    <RequestMapper type="Native">
+        <RequestMap applicationId="default">
+            <Host name="sp.example.org" authType="shibboleth" requireSession="true"/>
+        </RequestMap>
+    </RequestMapper>
+
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
     <ApplicationDefaults entityID="https://sp.example.org/shibboleth" REMOTE_USER="uid eppn subject-id pairwise-id persistent-id" cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">
 
