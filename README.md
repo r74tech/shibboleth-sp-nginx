@@ -18,6 +18,9 @@ make up
 ```
 
 ## license
-Copyright (c) 2019 Penn Labs
-
 Copyright (c) 2023 R74
+
+
+## references
+- https://shibboleth.atlassian.net/wiki/spaces/SP3/pages/2065335537/Installation
+- https://github.com/pennlabs/docker-shibboleth-sp-nginx [MIT License] Penn Labs
