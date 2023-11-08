@@ -3,7 +3,11 @@ services:
   sp:
     platform: linux/amd64
     build:
-      context: .
+      context: ./sp
+      dockerfile: Dockerfile
+    working_dir: /usr/src/sp/
+    volumes:
+      - ./sp:/usr/src/sp
     ports:
       - 80:80
       - 443:443
@@ -27,4 +31,3 @@ services:
 networks:
   front:
     external: false
-  
