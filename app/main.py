@@ -7,6 +7,8 @@ app = FastAPI()
 
 @app.get("/")
 def shibboleth(request: Request):
+    if "auth_type" not in request.headers:
+        return {"error": "No Shibboleth headers found"}
     shibboleth = {
         "auth_type": request.headers["auth_type"],
         "remote_user": request.headers["remote_user"],
