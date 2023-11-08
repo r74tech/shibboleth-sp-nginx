@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM debian:12-slim
 
 ENV SPURL=sp.example.org
 

@@ -10,6 +10,20 @@ DOCKERFILE_PATH := sp-certs
 SPURL := sp.example.org
 # 証明書生成
 certs:
+
+	# sp/shibboleth/sp-encrypt-cert.pemがあれば続行するか確認
+	@if [ -e $(CERTS_DIR)/sp-encrypt-cert.pem ]; then \
+		read -p "証明書が既に存在します。上書きしますか？ [y/N]: " yn; \
+		case $$yn in \
+			[Yy]* ) \
+				echo "証明書を上書きします。"; \
+				;; \
+			* ) \
+				echo "証明書の上書きを中止しました。"; \
+				exit 1; \
+				;; \
+		esac \
+	fi
 	@echo "ビルド中: Docker イメージ $(IMAGE_NAME)"
 	@docker build $(DOCKERFILE_PATH) -t $(IMAGE_NAME)
 	@echo "証明書を生成しています..."
