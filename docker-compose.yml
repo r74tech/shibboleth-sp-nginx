@@ -1,0 +1,30 @@
+version: "3"
+services:
+  sp:
+    platform: linux/amd64
+    build:
+      context: .
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - front
+  
+  backend:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    working_dir: /usr/src/app/
+    volumes:
+      - ./app:/usr/src/app
+    ports:
+      - 18080:8080
+    # expose:
+    #   - 8080
+    networks:
+      - front
+
+networks:
+  front:
+    external: false
+  
