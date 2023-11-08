@@ -1,7 +1,5 @@
 FROM debian:12-slim
 
-ENV SPURL=sp.example.org
-
 # 必要なパッケージをインストール
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
