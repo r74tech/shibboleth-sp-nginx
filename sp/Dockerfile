@@ -12,5 +12,4 @@ COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY ./certs/sp.example.org.pem /etc/nginx/cert.pem
 COPY ./certs/sp.example.org-key.pem /etc/nginx/key.pem
 
-# 生成された証明書を/etc/shibboleth/に一括コピー
 COPY ./shibboleth/ /etc/shibboleth/
